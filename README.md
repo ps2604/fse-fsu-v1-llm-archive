@@ -9,33 +9,33 @@ The core hypothesis of FSUv1 was that language could be modeled as a continuous 
 
 ## Architectural Iterations (Chronological)
 
-### v1: FSE/FSU Baseline (`1FSULLMA`)
+### v1: FSE/FSU Baseline (`v1-baseline`)
 - **Iteration 1**: The initial implementation of the FSE philosophy within a sequence-modeling context. Established the core field evolution and sampling mechanisms.
 
-### v2: Dynamic Inflow Synchronization (`2FSULLMBSTREAMNONCUR`)
+### v2: Dynamic Inflow Synchronization (`v2-stream-noncur`)
 - **Evolution**: Shifted from traditional batch processing to a **Streaming Data Inflow** model (JSON/JSONL).
 - **Rationale**: Hypothesized that matching data inflow dynamics with the model's continuous learning state would stabilize training.
 - **Results**: Observed significant reductions in gradient norms and smoother convergence across initial training epochs.
 
-### v3: Performance-Gated Curriculum Learning (`3FSU_LLM3STREAMCURR`)
+### v3: Performance-Gated Curriculum Learning (`v3-stream-curriculum`)
 - **Evolution**: Implemented a **Curricular Dataloader** that gated different data types (Complexity/Domain) based on real-time performance metrics.
 - **Goal**: To prevent catastrophic forgetting and ensure stable field maturation before introducing high-entropy linguistic data.
 
-### v4: ADP Protocol Implementation (`4FSULLMSTREAMCURRMORPHV1ADP`)
+### v4: ADP Protocol Implementation (`v4-adp-protocol`)
 - **Innovation**: Introduced the **ADP (Auralith Data-Field Protocol)**, a proprietary format optimized for continuous field architectures.
 - **Rationale**: Standard tensor formats were found to be inefficient for the high-frequency field updates required by FSE.
 
-### v5: Neural Data Compilation & AURA (`5FSULLMSTREAMCURRMORPHV1ADPAURA`)
+### v5: Neural Data Compilation & AURA (`v5-adp-aura-protocol`)
 - **Innovation**: Developed the **.aura** format and a dedicated **Data Compiler**.
 - **Teacher/Student FSE Engine**: The compiler pre-processed raw text into an "FSU-Domain Aware" state using an auxiliary FSE engine.
 - **Results**: This preprocessing step significantly lowered language and reasoning loss compared to all previous iterations.
 
-### v6: Morphological Ridge-SGD Hybrid (`6FSULLMSTREAMCURRMORPHV1`)
+### v6: Morphological Ridge-SGD Hybrid (`v6-ridgeSGD-hybrid`)
 - **Innovation**: Introduced **"Morph" mode**, a ridge regression initialization that "one-shots" the data representation prior to SGD training.
 - **Results**: Successfully accelerated training to reach key accuracy metrics. However, this version ultimately experienced **Mode Collapse** during extended inference testing.
 - **Key Finding**: While stability measures (tanh clamping) prevented numerical explosion, they reduced field entropy to a point where representational diversity was lost.
 
-### v7: FSMART-FSU Hybrid (`7FSULLMSTREAMCURRMORPHV15FSMART`)
+### v7: FSMART-FSU Hybrid (`v7-fsmart-hybrid`)
 - **Evolution**: Merged the continuous dynamics of FSE with a discrete **Transformer Encoder Head**.
 - **Reasoning**: Aimed to leverage global attention to resolve the context propagation and coherence issues identified in pure field models.
 
