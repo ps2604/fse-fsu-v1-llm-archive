@@ -1,49 +1,41 @@
-# FSU Language Model Evolution: FSUv1 Research Archive
+# FSU v1 — Field Sequence Unit: Research Archive
 **Author: Pirassena Sabaratnam**
 
 ## Overview
-This repository archives the development and experimentation of **FSU (Field Sequence Unit) v1**, a series of language models built on the **Field Signal Engine (FSE)** philosophy. Developed between June 24 and September 2, 2025, this research investigated the feasibility of replacing discrete token-based sequence modeling with **continuous neural field dynamics**.
+This repository archives the development of **FSU (Field Sequence Unit) v1**, a series of language models that attempted to replace discrete tensor operations with **continuous neural field dynamics**. Developed between June and September 2025, this research explored whether PDE-based computation could serve as the basis for sequence modeling.
 
-## Research Thesis: Continuous Field NLP
-The core hypothesis of FSUv1 was that language could be modeled as a continuous semantic field evolving over a manifold. This approach aimed to bypass the rigidity of discrete matrix multiplications in favor of **Partial Differential Equation (PDE) solving** for both forward and backward passes.
+## Research Question
+Can language be modeled as a continuous semantic field evolving over a manifold? Instead of discrete matrix multiplications (as in Transformers), FSU v1 used partial differential equation (PDE) solving for both forward and backward passes, with sequence positions treated as field coordinates.
 
-## Architectural Iterations (Chronological)
+## Iterations
 
-### v1: FSE/FSU Baseline (`v1-baseline`)
-- **Iteration 1**: The initial implementation of the FSE philosophy within a sequence-modeling context. Established the core field evolution and sampling mechanisms.
+### v1: Baseline (`v1-baseline`)
+Initial implementation of continuous field evolution for sequence modeling. Established core field update and sampling mechanisms.
 
-### v2: Dynamic Inflow Synchronization (`v2-stream-noncur`)
-- **Evolution**: Shifted from traditional batch processing to a **Streaming Data Inflow** model (JSON/JSONL).
-- **Rationale**: Hypothesized that matching data inflow dynamics with the model's continuous learning state would stabilize training.
-- **Results**: Observed significant reductions in gradient norms and smoother convergence across initial training epochs.
+### v2: Streaming Data Inflow (`v2-stream-noncur`)
+Replaced batch processing with a streaming data model (JSON/JSONL). Hypothesized that matching data inflow dynamics with the model's continuous learning state would stabilize training. Result: reduced gradient norms and smoother convergence.
 
-### v3: Performance-Gated Curriculum Learning (`v3-stream-curriculum`)
-- **Evolution**: Implemented a **Curricular Dataloader** that gated different data types (Complexity/Domain) based on real-time performance metrics.
-- **Goal**: To prevent catastrophic forgetting and ensure stable field maturation before introducing high-entropy linguistic data.
+### v3: Performance-Gated Curriculum (`v3-stream-curriculum`)
+Added a curriculum dataloader that gates data complexity based on real-time performance metrics. Goal: prevent catastrophic forgetting during field maturation.
 
-### v4: ADP Protocol Implementation (`v4-adp-protocol`)
-- **Innovation**: Introduced the **ADP (Auralith Data-Field Protocol)**, a proprietary format optimized for continuous field architectures.
-- **Rationale**: Standard tensor formats were found to be inefficient for the high-frequency field updates required by FSE.
+### v4: Custom Data Format (`v4-adp-protocol`)
+Developed a custom data serialization format optimized for the high-frequency field updates required by the architecture. Standard tensor formats introduced unnecessary overhead.
 
-### v5: Neural Data Compilation & AURA (`v5-adp-aura-protocol`)
-- **Innovation**: Developed the **.aura** format and a dedicated **Data Compiler**.
-- **Teacher/Student FSE Engine**: The compiler pre-processed raw text into an "FSU-Domain Aware" state using an auxiliary FSE engine.
-- **Results**: This preprocessing step significantly lowered language and reasoning loss compared to all previous iterations.
+### v5: Preprocessing Pipeline (`v5-adp-aura-protocol`)
+Built a teacher/student data compilation pipeline that preprocesses raw text into a domain-aware representation using an auxiliary FSE engine. Result: significantly lower language and reasoning loss compared to all previous iterations.
 
-### v6: Morphological Ridge-SGD Hybrid (`v6-ridgeSGD-hybrid`)
-- **Innovation**: Introduced **"Morph" mode**, a ridge regression initialization that "one-shots" the data representation prior to SGD training.
-- **Results**: Successfully accelerated training to reach key accuracy metrics. However, this version ultimately experienced **Mode Collapse** during extended inference testing.
-- **Key Finding**: While stability measures (tanh clamping) prevented numerical explosion, they reduced field entropy to a point where representational diversity was lost.
+### v6: Ridge-SGD Hybrid (`v6-ridgeSGD-hybrid`)
+Introduced a ridge regression initialization step that "one-shots" the data representation prior to SGD fine-tuning. Result: fastest convergence to accuracy targets. However, suffered **mode collapse** during extended inference — the stability constraints (tanh clamping) needed for PDE convergence reduced field entropy to the point where representational diversity was lost.
 
-### v7: FSMART-FSU Hybrid (`v7-fsmart-hybrid`)
-- **Evolution**: Merged the continuous dynamics of FSE with a discrete **Transformer Encoder Head**.
-- **Reasoning**: Aimed to leverage global attention to resolve the context propagation and coherence issues identified in pure field models.
+### v7: Transformer Hybrid (`v7-fsmart-hybrid`)
+Merged continuous field dynamics with a discrete Transformer encoder head, aiming to use global self-attention to resolve the context propagation issues in pure field models.
 
-## Final Research Conclusions
-The FSUv1 series established several critical findings for field-based sequence modeling:
-- **Memory Efficiency**: The architecture demonstrated the ability to operate on a **fixed memory state O(n)**, independent of sequence length.
-- **Incoherent Inference**: Despite training stability and loss reduction, the models failed to produce coherent linguistic responses, leading to an inconclusive result regarding the claim of "unlimited context propagation."
-- **Stability-Diversity Tradeoff**: Aggressive normalization and clamping required for PDE convergence directly contributed to mode collapse and loss of semantic nuance.
+## Key Findings
+1. **O(n) memory**: The architecture operates on a fixed-size state, independent of sequence length — no KV cache growth.
+2. **Stability-diversity tradeoff**: The normalization required for PDE convergence (tanh clamping, gradient clipping) directly caused mode collapse. This is the fundamental tension in continuous field architectures.
+3. **Incoherent inference**: Despite stable training and loss reduction, the models did not produce coherent linguistic output. The context propagation problem was never fully solved within the PDE framework.
+
+These findings directly motivated the development of the **Gravitational Vector Network (GVN)**, which uses structured gravitational attractors to provide the stability that unconstrained field evolution lacked, while preserving the continuous dynamics.
 
 ---
-*Developed in 2025 as part of the Auralith Inc. Research.*
+*Developed June–September 2025 — Auralith Inc.*
