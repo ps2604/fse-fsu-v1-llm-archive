@@ -35,7 +35,7 @@ Merged continuous field dynamics with a discrete Transformer encoder head, aimin
 2. **Stability-diversity tradeoff**: The normalization required for PDE convergence (tanh clamping, gradient clipping) directly caused mode collapse. This is the fundamental tension in continuous field architectures.
 3. **Incoherent inference**: Despite stable training and loss reduction, the models did not produce coherent linguistic output. The context propagation problem was never fully solved within the PDE framework.
 
-These findings directly motivated the development of the **Gravitational Vector Network (GVN)**, which uses structured gravitational attractors to provide the stability that unconstrained field evolution lacked, while preserving the continuous dynamics.
+
 
 ---
 *Developed June–September 2025 — Auralith Inc.*
